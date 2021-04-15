@@ -1,0 +1,14 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: disney
+spec:
+  entryPoints:
+    - web
+  routes:
+  - kind: Rule
+    match: Host(`disney.chtitemouss.net`) && PathPrefix(`/`)
+    services:
+    - name: disney
+      port: 80
+---
